@@ -18,3 +18,5 @@ This app consists on a fake login view, using Retrofit2 and a mock OAuth server 
  * Data binding
  * Some unit test using MockK (Mockito)
  
+ 
+ 
