@@ -1,0 +1,12 @@
+<resources>
+    <string name="shared_preferences">KittyCats_SharedPreferences</string>
+
+    <string name="sp_user_logged_in">user_logged_in</string>
+    <string name="sp_did_download_data">did_download_data</string>
+    <string name="sp_auth_token">auth_token</string>
+    <string name="sp_refresh_token">refresh_token</string>
+    <string name="sp_user_first_name">user_first_name</string>
+    <string name="sp_user_last_name">user_last_name</string>
+    <string name="sp_user_id">user_id</string>
+    <string name="sp_user_email">user_email</string>
+</resources>

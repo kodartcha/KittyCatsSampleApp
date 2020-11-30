@@ -1,0 +1,7 @@
+<resources>
+    <string name="country_code_header">Country code:</string>
+    <string name="temperament_header">Temperament:</string>
+    <string name="description_header">Description:</string>
+    <string name="error">Error loading breed details!</string>
+    <string name="wiki_button">Check in wikipedia</string>
+</resources>

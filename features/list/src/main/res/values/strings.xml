@@ -1,0 +1,4 @@
+<resources>
+    <string name="breeds_download_error">Error updating the cat breeds list!</string>
+    <string name="origin_header">Origin:</string>
+</resources>

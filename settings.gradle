@@ -1,0 +1,7 @@
+include ':features:detail'
+include ':features:login'
+include ':core:resources'
+include ':features:list'
+include ':core:network'
+include ':core:data'
+include ':app'

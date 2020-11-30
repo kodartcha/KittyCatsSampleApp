@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KittyCats</string>
+
+    <string name="la_welcome">Welcome to KittyCats app…</string>
+
+    <string name="error_dialog_title">Error!</string>
+    <string name="error_dialog_message">The cat breeds download process has failed!</string>
+    <string name="error_dialog_btn_retry">Try again</string>
+    <string name="error_dialog_btn_exit">Exit</string>
+</resources>

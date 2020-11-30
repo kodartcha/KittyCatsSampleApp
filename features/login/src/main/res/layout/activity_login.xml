@@ -1,0 +1,138 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gabriel_codarcea.core.data.model.LoadingState" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.gabriel_codarcea.features.login.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.LoginActivity">
+
+        <TextView
+            android:id="@+id/signInHeader"
+            android:text="@string/action_sign_in"
+            android:textSize="24sp"
+            android:layout_width="0dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/emailField" />
+
+        <EditText
+            android:id="@+id/emailField"
+            android:hint="@string/prompt_email"
+            android:singleLine="true"
+            android:maxEms="20"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:enabled="@{viewModel.state == LoadingState.IN_PROGRESS ? false : true}"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            app:addTextChangedListener="@{viewModel.emailTextWatcher}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/passwordField"/>
+
+        <EditText
+            android:id="@+id/passwordField"
+            android:hint="@string/prompt_password"
+            android:singleLine="true"
+            android:maxEms="20"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:enabled="@{viewModel.state == LoadingState.IN_PROGRESS ? false : true}"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            app:addTextChangedListener="@{viewModel.passwordTextWatcher}"
+            app:layout_constraintBottom_toTopOf="@+id/centerGuide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/centerGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <android.widget.Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="@string/action_sign_in"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:onClick="@{() -> viewModel.startLogin()}"
+            android:visibility="@{viewModel.state == LoadingState.IN_PROGRESS ? View.GONE : View.VISIBLE}"
+            android:fontFamily="@font/montserrat_bold"
+            android:background="@drawable/button_bg"
+            app:layout_constraintTop_toBottomOf="@+id/centerGuide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progressBar"
+            style="@style/AVLoadingIndicatorView.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/purple_500"
+            app:indicatorName="PacmanIndicator"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:visibility="@{viewModel.state == LoadingState.IN_PROGRESS ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toBottomOf="@+id/centerGuide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/loginError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+            android:visibility="@{viewModel.state == LoadingState.ERROR ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:fontFamily="@font/montserrat_light"
+            android:text="@string/login_credentials"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gabriel_codarcea.core.data.model.LoadingState" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.gabriel_codarcea.features.detail.viewmodel.BreedDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.BreedDetailActivity">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            app:imageUrl="@{viewModel.breed.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{viewModel.breed.name}"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            tools:text="Special Cat" />
+
+        <TextView
+            android:id="@+id/countryCodeHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:text="@string/country_code_header"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <TextView
+            android:id="@+id/countryCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{viewModel.breed.country_code}"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_light"
+            app:layout_constraintStart_toEndOf="@id/countryCodeHeader"
+            app:layout_constraintBottom_toBottomOf="@+id/countryCodeHeader"
+            tools:text="ES"/>
+
+        <TextView
+            android:id="@+id/temperamentHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:text="@string/temperament_header"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryCodeHeader" />
+
+        <TextView
+            android:id="@+id/temperament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{viewModel.breed.temperament}"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_light"
+            app:layout_constraintStart_toEndOf="@id/temperamentHeader"
+            app:layout_constraintBottom_toBottomOf="@+id/temperamentHeader"
+            tools:text="Aggresive"/>
+
+        <TextView
+            android:id="@+id/descriptionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:text="@string/description_header"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/temperamentHeader" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:ellipsize="end"
+            android:text="@{viewModel.breed.description}"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionHeader"
+            app:layout_constraintBottom_toTopOf="@+id/wikiButton"
+            tools:text="description..."/>
+
+        <android.widget.Button
+            android:id="@+id/wikiButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="@string/wiki_button"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:background="@drawable/button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:visibility="@{viewModel.state == LoadingState.IN_PROGRESS ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/error"
+            android:visibility="@{viewModel.state == LoadingState.ERROR ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.state == LoadingState.FINISHED ? View.VISIBLE : View.GONE}"
+            app:constraint_referenced_ids="image, name, wikiButton, description, descriptionHeader, countryCode, countryCodeHeader, temperament, temperamentHeader" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
