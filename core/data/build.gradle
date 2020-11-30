@@ -43,9 +43,6 @@ dependencies {
     implementation "org.koin:koin-android:$rootProject.koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$rootProject.koin_version"
 
-    // Unit test
-    testImplementation "junit:junit:$rootProject.junit_version"
-
     // Gson
     implementation "com.google.code.gson:gson:$rootProject.gson_version"
 
@@ -53,6 +50,14 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+    // Unit test
+    testImplementation "junit:junit:$rootProject.junit_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+    testImplementation "org.assertj:assertj-core:$rootProject.assertj_version"
+    testImplementation "com.squareup.retrofit2:retrofit-mock:$rootProject.retrofit_version"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.arch_core_testing_version"
 
     // Implementation test
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidx_junit_version"

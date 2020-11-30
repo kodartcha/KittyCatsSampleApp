@@ -57,15 +57,20 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
-    // Unit test
-    testImplementation "junit:junit:$rootProject.junit_version"
-
     // Loading indicator
     implementation "com.wang.avi:library:$rootProject.loading_indicator_version"
 
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines_version"
+
+    // Unit test
+    testImplementation "junit:junit:$rootProject.junit_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+    testImplementation "org.assertj:assertj-core:$rootProject.assertj_version"
+    testImplementation "com.squareup.retrofit2:retrofit-mock:$rootProject.retrofit_version"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.arch_core_testing_version"
 
     // Implementation test
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidx_junit_version"

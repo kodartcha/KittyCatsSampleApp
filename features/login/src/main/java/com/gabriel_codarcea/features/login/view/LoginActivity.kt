@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
             this,
             R.layout.activity_login
         )
-        //binding.lifecycleOwner = this
+        binding.lifecycleOwner = this
         binding.viewModel = viewModel
     }
 

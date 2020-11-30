@@ -67,6 +67,11 @@ dependencies {
 
     // Unit test
     testImplementation "junit:junit:$rootProject.junit_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+    testImplementation "org.assertj:assertj-core:$rootProject.assertj_version"
+    testImplementation "com.squareup.retrofit2:retrofit-mock:$rootProject.retrofit_version"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.arch_core_testing_version"
 
     // Implementation test
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidx_junit_version"
